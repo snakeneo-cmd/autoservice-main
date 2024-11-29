@@ -39,7 +39,7 @@ class Uzsakymas(models.Model):
         max_length=20,
         choices=LOAN_STATUS,
         blank=True,
-        default='uzregistruotas',
+        default='Uzregistruotas',
         help_text='Statusas',
     )
 
@@ -50,6 +50,7 @@ class Uzsakymas(models.Model):
 
     def __str__(self):
         return f'Užsakymo NR.{self.id} ({self.status}, {self.data}) - Automobilis: {self.automobilis_id.valstybinis_nr} VIN: {self.automobilis_id.vin_kodas}'
+
 
 class Uzsakymo_eilute(models.Model):
     paslauga_id = models.ForeignKey('Paslauga', on_delete=models.CASCADE, null=False)
